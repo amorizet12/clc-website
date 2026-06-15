@@ -97,17 +97,18 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
-  max-width: 1100px;
+  padding: 12px 40px;
+  max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
   gap: 16px;
 }
 .brand { display: flex; align-items: center; }
-.brand-logo { height: 68px; width: auto; display: block; }
-@media (max-width: 640px) { .brand-logo { height: 52px; } }
+.brand-logo { width: 220px; height: auto; display: block; }
+@media (max-width: 640px) { .brand-logo { width: 155px; } }
 .header-phone {
   font-family: var(--f-head);
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--gold);
   letter-spacing: .03em;
@@ -118,8 +119,8 @@ a { color: inherit; text-decoration: none; }
 .header-nav { display: flex; align-items: center; gap: 24px; }
 .header-nav a {
   font-family: var(--f-head);
-  font-size: .78rem;
-  letter-spacing: .12em;
+  font-size: 1rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--gold);
   transition: var(--ease);
