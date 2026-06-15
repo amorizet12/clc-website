@@ -512,11 +512,12 @@
     ───────────────────────────────────────── */
     .areas-inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
       align-items: start;
       margin-top: 48px;
     }
+    .areas-left { display: flex; flex-direction: column; gap: 28px; }
     .areas-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -534,52 +535,37 @@
       align-items: center;
       gap: 8px;
     }
-    .area-pill::before { content: ''; display: none; }
-    .areas-text p {
-      color: var(--gray);
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .areas-text h3 {
-      font-family: var(--f-serif);
-      font-size: 1.5rem;
-      margin-bottom: 14px;
-    }
-
-    /*
-      ★ MAP EMBED
-      Replace the .map-placeholder div with a real Google Maps embed:
-
-        1. Go to maps.google.com
-        2. Search your business or city
-        3. Click Share → Embed a map → Copy HTML
-        4. Paste the <iframe ...> here, replacing .map-placeholder
-
-      Example:
-        <iframe
-          src="https://www.google.com/maps/embed?pb=..."
-          width="100%" height="280" style="border:0; border-radius:6px;"
-          allowfullscreen loading="lazy">
-        </iframe>
-    */
-    .map-placeholder {
-      margin-top: 20px;
-      width: 100%;
-      height: 240px;
-      background: #e8e6e0;
+    .area-pill::before { content: '▸'; color: var(--gold); font-size: .6rem; }
+    .areas-cta-box {
+      background: var(--white);
+      border: 1px solid rgba(201,168,76,.2);
       border-radius: var(--radius);
-      border: 2px dashed #c8c4b8;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: .85rem;
-      color: var(--gray);
-      text-align: center;
-      padding: 20px;
+      padding: 24px;
     }
-    .map-placeholder strong { font-size: .95rem; }
+    .areas-cta-box h3 {
+      font-family: var(--f-serif);
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    .areas-cta-box p {
+      font-size: .875rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .areas-map {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.1);
+      height: 440px;
+    }
+    .areas-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
 
     /* ─────────────────────────────────────────
        6. FAQ
@@ -848,6 +834,7 @@
     @media (max-width: 900px) {
       .header-nav { display: none; }
       .areas-inner { grid-template-columns: 1fr; }
+      .areas-map { height: 320px; }
       .contact-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
@@ -859,7 +846,8 @@
         grid-auto-rows: 180px;
       }
       .gallery-item:nth-child(1) { grid-row: span 1; }
-      .areas-list { grid-template-columns: 1fr; }
+      .areas-list { grid-template-columns: 1fr 1fr; }
+      .areas-map { height: 260px; }
       .f-row { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
@@ -1182,31 +1170,34 @@
     <div class="rule"></div>
 
     <div class="areas-inner">
-      <div class="areas-list">
-        <div class="area-pill">Charlotte</div>
-        <div class="area-pill">Concord</div>
-        <div class="area-pill">Huntersville</div>
-        <div class="area-pill">Mooresville</div>
-        <div class="area-pill">Matthews</div>
-        <div class="area-pill">Mint Hill</div>
-        <div class="area-pill">Kannapolis</div>
-        <div class="area-pill">Cornelius</div>
-        <div class="area-pill">Davidson</div>
-        <div class="area-pill">Gastonia</div>
-        <div class="area-pill">Indian Trail</div>
-        <div class="area-pill">Waxhaw</div>
+
+      <div class="areas-left">
+        <div class="areas-list">
+          <div class="area-pill">Charlotte</div>
+          <div class="area-pill">Concord</div>
+          <div class="area-pill">Huntersville</div>
+          <div class="area-pill">Mooresville</div>
+          <div class="area-pill">Matthews</div>
+          <div class="area-pill">Mint Hill</div>
+          <div class="area-pill">Kannapolis</div>
+          <div class="area-pill">Cornelius</div>
+          <div class="area-pill">Davidson</div>
+          <div class="area-pill">Gastonia</div>
+          <div class="area-pill">Indian Trail</div>
+          <div class="area-pill">Waxhaw</div>
+        </div>
+
+        <div class="areas-cta-box">
+          <h3>Not sure if we cover your area?</h3>
+          <p>We work throughout the greater Charlotte metro. If you're close to Charlotte and not on the list above, just call — chances are we can make it work.</p>
+          <a href="tel:4693465164" class="btn btn-gold">Call to Confirm</a>
+        </div>
       </div>
 
-      <div class="areas-text">
-        <h3>Not sure if we cover your area?</h3>
-        <p>
-          We work throughout the greater Charlotte metro. If you're close to Charlotte
-          and not on the list above, just call or send a message — chances are we can make it work.
-        </p>
-        <a href="tel:4693465164" class="btn btn-gold">Call to Confirm</a>
-
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d208642.48358304732!2d-80.98696810870665!3d35.20550234183874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541fc4fc381a81%3A0x884650e6bf43d164!2sCharlotte%2C%20NC!5e0!3m2!1sen!2sus!4v1781561420978!5m2!1sen!2sus" width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="areas-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d208642.48358304732!2d-80.98696810870665!3d35.20550234183874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541fc4fc381a81%3A0x884650e6bf43d164!2sCharlotte%2C%20NC!5e0!3m2!1sen!2sus!4v1781561420978!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
+
     </div>
   </div>
 </section>
