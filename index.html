@@ -301,32 +301,63 @@
     ───────────────────────────────────────── */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
       margin-top: 48px;
     }
     .svc-card {
       background: var(--white);
       border: 1px solid #e8e6e0;
       border-radius: var(--radius);
-      padding: 28px 24px;
-      transition: var(--ease);
+      overflow: hidden;
+      transition: box-shadow .3s ease, transform .3s ease;
       position: relative;
+      text-decoration: none;
+      display: block;
+      color: inherit;
     }
+    .svc-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,.13); transform: translateY(-4px); }
+    .svc-card:hover .svc-img-ph { transform: scale(1.04); }
+    .svc-card:hover::after { transform: scaleX(1); }
     .svc-card::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 3px;
       background: var(--gold);
-      border-radius: 0 0 var(--radius) var(--radius);
       transform: scaleX(0);
       transform-origin: left;
-      transition: var(--ease);
+      transition: transform .3s ease;
     }
-    .svc-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,.1); transform: translateY(-3px); }
-    .svc-card:hover::after { transform: scaleX(1); }
-    .svc-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .svc-img-wrap {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--dark2);
+      position: relative;
+    }
+    .svc-img-ph {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1a28 0%, #11111c 100%);
+      transition: transform .4s ease;
+    }
+    .svc-img-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 10px 14px;
+      background: linear-gradient(transparent, rgba(0,0,0,.65));
+      font-family: var(--f-head);
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .svc-body {
+      padding: 22px 22px 26px;
+    }
     .svc-card h3 {
       font-family: var(--f-head);
       font-size: 1rem;
@@ -334,12 +365,16 @@
       letter-spacing: .06em;
       text-transform: uppercase;
       color: var(--dark);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .svc-card p {
       font-size: .875rem;
       color: var(--gray);
       line-height: 1.65;
+    }
+    .services-cta {
+      text-align: center;
+      margin-top: 48px;
     }
 
     /* ─────────────────────────────────────────
@@ -899,52 +934,103 @@
     <h2 class="sec-title">Concrete Services in Charlotte, NC</h2>
     <div class="rule"></div>
     <p class="sec-sub">
-      We handle residential and commercial concrete work across the Charlotte metro.
-      Every job — large or small — gets the same level of care.
+      Explore our most requested concrete services — from pool decks and driveways to patios, slabs, and stamped finishes — all built with clean craftsmanship and long-term durability.
     </p>
 
     <div class="services-grid">
 
-      <div class="svc-card">
-        <h3>Pool Decks</h3>
-        <p>Broom finish, stamped, or smooth — we pour and finish pool decks built for Charlotte summers and built to last.</p>
-      </div>
+      <a href="services.html#pool-decks" class="svc-card">
+        <div class="svc-img-wrap">
+          <div class="svc-img-ph"></div>
+          <div class="svc-img-overlay">Charlotte, NC</div>
+        </div>
+        <div class="svc-body">
+          <h3>Pool Decks</h3>
+          <p>Broom finish, stamped, or smooth — built for Charlotte summers and built to last.</p>
+        </div>
+      </a>
 
-      <div class="svc-card">
-        <h3>Driveways</h3>
-        <p>A properly poured driveway adds curb appeal and holds up for decades. We do it right from subgrade to finish.</p>
-      </div>
+      <a href="services.html#driveways" class="svc-card">
+        <div class="svc-img-wrap">
+          <div class="svc-img-ph"></div>
+          <div class="svc-img-overlay">Charlotte, NC</div>
+        </div>
+        <div class="svc-body">
+          <h3>Driveways</h3>
+          <p>Curb appeal that lasts decades. Done right from subgrade prep to final finish.</p>
+        </div>
+      </a>
 
-      <div class="svc-card">
-        <h3>Patios</h3>
-        <p>Custom concrete patios — including designs that integrate with natural features like rocks, slopes, and existing landscaping.</p>
-      </div>
+      <a href="services.html#patios" class="svc-card">
+        <div class="svc-img-wrap">
+          <div class="svc-img-ph"></div>
+          <div class="svc-img-overlay">Charlotte, NC</div>
+        </div>
+        <div class="svc-body">
+          <h3>Patios</h3>
+          <p>Custom designs that work with your yard — slopes, rocks, and all.</p>
+        </div>
+      </a>
 
-      <div class="svc-card">
-        <h3>Stamped Concrete</h3>
-        <p>Decorative patterns pressed into wet concrete. Stone, slate, brick looks — without the stone price tag.</p>
-      </div>
+      <a href="services.html#stamped-concrete" class="svc-card">
+        <div class="svc-img-wrap">
+          <div class="svc-img-ph"></div>
+          <div class="svc-img-overlay">Charlotte, NC</div>
+        </div>
+        <div class="svc-body">
+          <h3>Stamped Concrete</h3>
+          <p>Stone, slate, and brick looks pressed into concrete — without the stone price tag.</p>
+        </div>
+      </a>
 
-      <div class="svc-card">
-        <h3>Retaining Walls</h3>
-        <p>Structural concrete retaining walls to control erosion and create usable yard space on sloped properties.</p>
-      </div>
+      <a href="services.html#retaining-walls" class="svc-card">
+        <div class="svc-img-wrap">
+          <div class="svc-img-ph"></div>
+          <div class="svc-img-overlay">Charlotte, NC</div>
+        </div>
+        <div class="svc-body">
+          <h3>Retaining Walls</h3>
+          <p>Structural walls that control erosion and create usable yard space on sloped lots.</p>
+        </div>
+      </a>
 
-      <div class="svc-card">
-        <h3>Steps &amp; Stairs</h3>
-        <p>Entry steps, pool steps, exterior staircases — poured clean and finished to match the surrounding concrete.</p>
-      </div>
+      <a href="services.html#steps" class="svc-card">
+        <div class="svc-img-wrap">
+          <div class="svc-img-ph"></div>
+          <div class="svc-img-overlay">Charlotte, NC</div>
+        </div>
+        <div class="svc-body">
+          <h3>Steps &amp; Stairs</h3>
+          <p>Entry steps, pool steps, and staircases — finished to match the surrounding pour.</p>
+        </div>
+      </a>
 
-      <div class="svc-card">
-        <h3>Garages &amp; Slabs</h3>
-        <p>Garage floors, shed pads, and concrete slabs for any structure. Proper thickness and reinforcement, every time.</p>
-      </div>
+      <a href="services.html#garages" class="svc-card">
+        <div class="svc-img-wrap">
+          <div class="svc-img-ph"></div>
+          <div class="svc-img-overlay">Charlotte, NC</div>
+        </div>
+        <div class="svc-body">
+          <h3>Garages &amp; Slabs</h3>
+          <p>Garage floors, shed pads, and slabs. Proper thickness and reinforcement every time.</p>
+        </div>
+      </a>
 
-      <div class="svc-card">
-        <h3>Footings &amp; Foundations</h3>
-        <p>Footings for decks, additions, and outbuildings. We follow local specs and pour to last.</p>
-      </div>
+      <a href="services.html#footings" class="svc-card">
+        <div class="svc-img-wrap">
+          <div class="svc-img-ph"></div>
+          <div class="svc-img-overlay">Charlotte, NC</div>
+        </div>
+        <div class="svc-body">
+          <h3>Footings &amp; Foundations</h3>
+          <p>Footings for decks, additions, and outbuildings — poured to local spec.</p>
+        </div>
+      </a>
 
+    </div>
+
+    <div class="services-cta">
+      <a href="services.html" class="btn btn-dark">View All Services</a>
     </div>
   </div>
 </section>
