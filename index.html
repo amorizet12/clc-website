@@ -194,27 +194,32 @@
     }
     .hero {
       position: relative;
-      background: var(--white);
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
       overflow: hidden;
-      border-bottom: 1px solid #e8e6e0;
+      background-image: url('image1.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,.72);
     }
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+      padding: 80px 40px;
       max-width: 1400px;
       margin: 0 auto;
-      padding-left: 40px;
-      padding-right: 40px;
+      width: 100%;
     }
     .hero-content {
-      max-width: 560px;
+      max-width: 620px;
     }
     .hero h1 {
       font-family: var(--f-serif);
-      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 900;
       color: var(--dark);
       line-height: 1.1;
@@ -227,57 +232,20 @@
     }
     .hero-sub {
       font-size: 1.05rem;
-      color: var(--gray);
+      color: var(--dark);
       line-height: 1.75;
       max-width: 520px;
       margin-bottom: 36px;
     }
-    .hero-ctas {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn-ghost-dark {
       background: transparent;
       color: var(--dark);
-      border-color: rgba(0,0,0,.3);
+      border-color: rgba(0,0,0,.35);
     }
     .btn-ghost-dark:hover { background: var(--dark); color: var(--white); }
-    .hero-image {
-      position: relative;
-    }
-    .hero-image img {
-      width: 100%;
-      border-radius: var(--radius);
-      display: block;
-      box-shadow: 0 20px 60px rgba(0,0,0,.15);
-    }
-    .hero-image-badge {
-      position: absolute;
-      bottom: -16px;
-      left: -16px;
-      background: var(--gold);
-      color: var(--navy);
-      padding: 16px 20px;
-      border-radius: var(--radius);
-      font-family: var(--f-head);
-      font-size: .72rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      font-weight: 600;
-      box-shadow: 0 8px 24px rgba(212,175,55,.4);
-    }
-    .hero-image-badge strong {
-      display: block;
-      font-size: 1.6rem;
-      letter-spacing: 0;
-      line-height: 1;
-      margin-bottom: 2px;
-    }
-    @media (max-width: 860px) {
-      .hero-inner { grid-template-columns: 1fr; padding: 56px 20px 72px; }
-      .hero-image { order: -1; }
-      .hero-image-badge { bottom: -12px; left: 12px; }
+    @media (max-width: 640px) {
+      .hero-inner { padding: 60px 20px; }
     }
 
     /* ─────────────────────────────────────────
@@ -850,8 +818,8 @@
      1. HERO
 ───────────────────────────────────────────────── -->
 <section class="hero">
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
-
     <div class="hero-content">
       <span class="eyebrow eyebrow--dark">Concrete Contractor — Charlotte, NC</span>
       <h1>
@@ -865,18 +833,9 @@
       </p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-gold">Get a Free Estimate</a>
-        <a href="tel:4693465164" class="btn btn-ghost-dark btn">(469) 346-5164</a>
+        <a href="tel:4693465164" class="btn btn-ghost-dark">(469) 346-5164</a>
       </div>
     </div>
-
-    <div class="hero-image">
-      <img src="image1.png" alt="Charlotte Luxury Concrete project" />
-      <div class="hero-image-badge">
-        <strong>5★</strong>
-        Locally Owned & Operated
-      </div>
-    </div>
-
   </div>
 </section>
 
