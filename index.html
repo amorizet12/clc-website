@@ -217,43 +217,72 @@
     }
     /* Translucent content card behind headline */
     .hero-content {
-      max-width: 660px;
-      background: rgba(0,0,0,.30);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      max-width: 520px;
+      background: rgba(0,0,0,.32);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
       border-radius: 10px;
-      border: 1px solid rgba(212,175,55,.18);
-      padding: 48px 48px 44px;
+      border: 1px solid rgba(212,175,55,.2);
+      padding: 44px 44px 40px;
+      margin-top: 48px;
     }
     .hero h1 {
       font-family: var(--f-serif);
-      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
       font-weight: 900;
       color: var(--white);
       line-height: 1.12;
       letter-spacing: -.01em;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 12px rgba(0,0,0,.5);
+      margin-bottom: 10px;
+      text-shadow: 0 2px 14px rgba(0,0,0,.55);
     }
-    /* Metallic gold gradient on "Built to Last." */
+    /* Rich metallic gold gradient on "Built to Last." */
     .hero h1 em {
       font-style: normal;
       display: block;
-      background: linear-gradient(135deg, #c9a227 0%, #f4d03f 45%, #c9a227 70%, #e8c84a 100%);
+      background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 35%, #E5C158 60%, #D4AF37 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-shadow: none;
-      filter: drop-shadow(0 2px 6px rgba(212,175,55,.35));
+      filter: drop-shadow(0 2px 8px rgba(212,175,55,.5));
+      margin-bottom: 16px;
+    }
+    /* Service line */
+    .hero-services {
+      font-family: var(--f-head);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(212,175,55,.75);
+      margin-bottom: 20px;
     }
     .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,.88);
+      font-size: 1rem;
+      color: rgba(255,255,255,.82);
       line-height: 1.78;
-      max-width: 520px;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
       text-shadow: 0 1px 4px rgba(0,0,0,.4);
     }
+    /* Call now line */
+    .hero-call {
+      font-family: var(--f-head);
+      font-size: .88rem;
+      letter-spacing: .08em;
+      color: var(--white);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-call a {
+      color: #F4D03F;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      transition: var(--ease);
+    }
+    .hero-call a:hover { color: var(--white); }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn-ghost-dark {
       background: transparent;
@@ -262,8 +291,8 @@
     }
     .btn-ghost-dark:hover { background: var(--white); color: var(--navy); }
     @media (max-width: 640px) {
-      .hero-inner { padding: 48px 20px; }
-      .hero-content { padding: 32px 24px; }
+      .hero-inner { padding: 40px 20px; }
+      .hero-content { padding: 28px 22px; margin-top: 24px; max-width: 100%; }
     }
 
     /* ─────────────────────────────────────────
@@ -839,16 +868,18 @@
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-content">
-      <span class="eyebrow eyebrow--dark">Concrete Contractor — Charlotte, NC</span>
+      <span class="eyebrow">Concrete Contractor — Charlotte, NC</span>
       <h1>
         Premium Concrete.
         <em>Built to Last.</em>
       </h1>
+      <p class="hero-services">Driveways &bull; Pool Decks &bull; Patios &bull; Retaining Walls</p>
       <p class="hero-sub">
         Pool decks, driveways, patios, stamped concrete, retaining walls, and more.
         Serving Charlotte and surrounding communities.
         Call or fill out the form for a free estimate.
       </p>
+      <p class="hero-call">Call Now: <a href="tel:4693465164">(469) 346-5164</a></p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-gold">Get a Free Estimate</a>
         <a href="tel:4693465164" class="btn btn-ghost-dark">(469) 346-5164</a>
