@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concrete Services | Charlotte Luxury Concrete</title>
+  <meta name="description" content="Pool decks, driveways, patios, stamped concrete, retaining walls, steps, garage slabs, and footings — Charlotte Luxury Concrete serves Charlotte, NC and surrounding areas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Services page specific ── */
+    .svc-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 56px;
+    }
+    .svc-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .svc-detail-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--dark2);
+      border-radius: var(--radius) var(--radius) 0 0;
+      overflow: hidden;
+      border: 2px dashed rgba(201,168,76,.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: rgba(201,168,76,.4);
+      font-family: var(--f-head);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .svc-detail-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .svc-detail-body {
+      background: var(--white);
+      border: 1px solid #e8e6e0;
+      border-top: none;
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 28px 26px 32px;
+    }
+    .svc-detail-body h2 {
+      font-family: var(--f-head);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .svc-detail-body p {
+      font-size: .9rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .svc-detail-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .svc-detail-body ul li {
+      font-size: .875rem;
+      color: var(--gray);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .svc-detail-body ul li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .cta-band {
+      background: var(--gold);
+      padding: 56px 0;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-family: var(--f-serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .cta-band p {
+      color: rgba(5,5,10,.65);
+      margin-bottom: 28px;
+      font-size: 1rem;
+    }
+    .cta-band .btn-dark { background: var(--navy); color: var(--white); }
+    .cta-band .btn-dark:hover { background: var(--dark); }
+
+    @media (max-width: 860px) {
+      .svc-detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Charlotte Luxury Concrete" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span style="display:none;font-family:var(--f-serif);font-size:1rem;color:var(--white);">Charlotte <span style="color:var(--gold)">Luxury</span> Concrete</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="index.html#areas">Areas</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="tel:7040000000" class="header-phone">(704) 000-0000</a>
+  </div>
+</header>
+
+
+<section class="page-hero">
+  <div class="page-hero-stripe"></div>
+  <div class="wrap page-hero-content">
+    <span class="eyebrow">What We Do</span>
+    <h1>Concrete Services in<br><span class="gold">Charlotte, NC</span></h1>
+    <p>Residential and commercial concrete work across the Charlotte metro. Every job gets the same level of care — from subgrade prep to final finish.</p>
+  </div>
+</section>
+
+
+<section class="sec sec--off">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--dark">Our Services</span>
+    <h2 class="sec-title">Everything Concrete</h2>
+    <div class="rule"></div>
+    <p class="sec-sub">We specialize exclusively in concrete — not a general contractor who does it on the side. Every job below is something we do every day.</p>
+
+    <div class="svc-detail-grid">
+
+      <div class="svc-detail">
+        <!-- Replace the div below with: <img src="pool-deck.jpg" alt="Pool deck Charlotte NC" /> -->
+        <div class="svc-detail-img">Add Pool Deck Photo</div>
+        <div class="svc-detail-body">
+          <h2>Pool Decks</h2>
+          <p>A pool deck takes more abuse than almost any other concrete surface — heat, moisture, foot traffic, pool chemicals. We pour and finish pool decks built to handle all of it, and built to look great doing it.</p>
+          <ul>
+            <li>Broom finish, smooth, or stamped</li>
+            <li>Slip-resistant texture options</li>
+            <li>Heat-reflective color options</li>
+            <li>Integrates with coping, steps, and landscaping</li>
+            <li>Proper drainage slope built in</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc-detail">
+        <div class="svc-detail-img">Add Driveway Photo</div>
+        <div class="svc-detail-body">
+          <h2>Driveways</h2>
+          <p>A properly poured driveway is one of the best investments in your home. We handle everything from excavation and subgrade prep to control joints and final finish — done right the first time.</p>
+          <ul>
+            <li>Proper base prep and compaction</li>
+            <li>Reinforcement (rebar or wire mesh)</li>
+            <li>Control joints to manage cracking</li>
+            <li>Broom or exposed aggregate finish</li>
+            <li>Curb cuts and apron work</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc-detail">
+        <div class="svc-detail-img">Add Patio Photo</div>
+        <div class="svc-detail-body">
+          <h2>Patios</h2>
+          <p>Custom concrete patios that work with your yard — not against it. We build around slopes, rocks, trees, and existing features to give you a patio that fits your space perfectly.</p>
+          <ul>
+            <li>Custom shapes and sizes</li>
+            <li>Integrates with natural grade and landscaping</li>
+            <li>Smooth, broom, or stamped finishes</li>
+            <li>Optional border and inlay designs</li>
+            <li>Steps and transitions included</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc-detail">
+        <div class="svc-detail-img">Add Stamped Concrete Photo</div>
+        <div class="svc-detail-body">
+          <h2>Stamped Concrete</h2>
+          <p>Decorative patterns pressed into wet concrete to replicate the look of stone, slate, brick, or wood — at a fraction of the material cost. One of our most popular services for pool decks and patios.</p>
+          <ul>
+            <li>Dozens of pattern options</li>
+            <li>Color integral and release options</li>
+            <li>Slate, flagstone, cobblestone, wood plank looks</li>
+            <li>Sealer applied for color protection</li>
+            <li>Can be combined with smooth borders</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc-detail">
+        <div class="svc-detail-img">Add Retaining Wall Photo</div>
+        <div class="svc-detail-body">
+          <h2>Retaining Walls</h2>
+          <p>Structural concrete retaining walls that hold back soil, control erosion, and create flat, usable yard space on sloped properties. Built to last and engineered to handle the load.</p>
+          <ul>
+            <li>Poured concrete or block construction</li>
+            <li>Drainage integrated behind wall</li>
+            <li>Tiered wall systems for larger grades</li>
+            <li>Can be finished or formed to match surroundings</li>
+            <li>Permits pulled as required</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc-detail">
+        <div class="svc-detail-img">Add Steps Photo</div>
+        <div class="svc-detail-body">
+          <h2>Steps &amp; Stairs</h2>
+          <p>Entry steps, pool steps, exterior staircases — poured clean, formed square, and finished to match or complement the surrounding concrete work.</p>
+          <ul>
+            <li>Entry steps for homes and additions</li>
+            <li>Pool steps and landings</li>
+            <li>Exterior staircases with handrail provisions</li>
+            <li>Matching finish to adjacent surfaces</li>
+            <li>Nosing options for safety</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc-detail">
+        <div class="svc-detail-img">Add Garage / Slab Photo</div>
+        <div class="svc-detail-body">
+          <h2>Garages &amp; Slabs</h2>
+          <p>Garage floors, shed pads, workshop slabs, and concrete bases for any structure. Proper thickness, proper reinforcement, proper slope — every time.</p>
+          <ul>
+            <li>Standard 4" residential garage floors</li>
+            <li>Thickened edges for load-bearing structures</li>
+            <li>Vapor barrier under slab</li>
+            <li>Control joints at correct intervals</li>
+            <li>Smooth trowel finish for easy cleaning</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc-detail">
+        <div class="svc-detail-img">Add Footings Photo</div>
+        <div class="svc-detail-body">
+          <h2>Footings &amp; Foundations</h2>
+          <p>Footings for decks, room additions, outbuildings, and accessory structures. We follow local code specs, set forms level, and pour to the depth the project requires.</p>
+          <ul>
+            <li>Deck and pergola footings</li>
+            <li>Addition and outbuilding foundations</li>
+            <li>Continuous and spread footings</li>
+            <li>Rebar placement per spec</li>
+            <li>Same-day pour after inspection when possible</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready to Get Started?</h2>
+    <p>We visit your site, assess the project, and give you a written estimate — free, no obligation.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-dark">Request a Free Estimate</a>
+      <a href="tel:7040000000" class="btn btn-ghost" style="border-color:rgba(5,5,10,.3);color:var(--navy);">(704) 000-0000</a>
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span style="font-family:var(--f-serif);font-size:1.1rem;color:var(--white);">
+          Charlotte <span style="color:var(--gold)">Luxury</span> Concrete
+        </span>
+        <p>Concrete contractor serving Charlotte, NC and surrounding communities. Pool decks, driveways, patios, stamped concrete, retaining walls, and more.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/charlotteluxuryconcrete/" target="_blank" title="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="tel:7040000000" title="Call Us">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.37 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6.29 6.29l.91-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Pool Decks</a></li>
+          <li><a href="services.html">Driveways</a></li>
+          <li><a href="services.html">Patios</a></li>
+          <li><a href="services.html">Stamped Concrete</a></li>
+          <li><a href="services.html">Retaining Walls</a></li>
+          <li><a href="services.html">Steps &amp; Stairs</a></li>
+          <li><a href="services.html">Garages &amp; Slabs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Free Estimate</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#areas">Service Areas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Charlotte Luxury Concrete. All rights reserved.</span>
+      <span>Charlotte, NC &amp; Surrounding Areas</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:7040000000" class="btn btn-gold float-call">Call for Free Estimate</a>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Gallery | Charlotte Luxury Concrete</title>
+  <meta name="description" content="Browse real concrete projects completed by Charlotte Luxury Concrete — pool decks, driveways, patios, stamped concrete, retaining walls, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Filter bar ── */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 40px 0 32px;
+    }
+    .filter-btn {
+      padding: 9px 20px;
+      border-radius: 100px;
+      border: 1px solid #ddd8ce;
+      background: var(--white);
+      font-family: var(--f-head);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      cursor: pointer;
+      transition: var(--ease);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+
+    /* ── Masonry-style grid ── */
+    .gallery-grid {
+      columns: 3;
+      column-gap: 14px;
+    }
+    .gallery-card {
+      break-inside: avoid;
+      margin-bottom: 14px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--dark2);
+      cursor: pointer;
+    }
+    .gallery-card img {
+      width: 100%;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .gallery-card:hover img { transform: scale(1.04); }
+
+    /* Placeholder (remove once you add real photos) */
+    .gallery-ph {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 40px 20px;
+      border: 2px dashed rgba(201,168,76,.2);
+      text-align: center;
+      transition: transform .5s ease;
+    }
+    .gallery-card:hover .gallery-ph { transform: scale(1.04); }
+    .gallery-ph span {
+      font-family: var(--f-head);
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,.4);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,.75));
+      opacity: 0;
+      transition: var(--ease);
+    }
+    .gallery-card:hover .gallery-caption { opacity: 1; }
+    .gallery-caption-label {
+      font-family: var(--f-head);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .gallery-caption-loc {
+      font-size: .8rem;
+      color: var(--gray-lt);
+      margin-top: 2px;
+    }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      display: none;
+      position: fixed; inset: 0;
+      z-index: 1000;
+      background: rgba(5,5,10,.92);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: var(--radius);
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: .7;
+      transition: var(--ease);
+    }
+    .lightbox-close:hover { opacity: 1; }
+
+    .ig-cta {
+      text-align: center;
+      margin-top: 56px;
+      padding: 48px 24px;
+      background: var(--off);
+      border-radius: var(--radius);
+    }
+    .ig-cta h3 {
+      font-family: var(--f-serif);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .ig-cta p {
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 860px) { .gallery-grid { columns: 2; } }
+    @media (max-width: 500px) { .gallery-grid { columns: 1; } }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Charlotte Luxury Concrete" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span style="display:none;font-family:var(--f-serif);font-size:1rem;color:var(--white);">Charlotte <span style="color:var(--gold)">Luxury</span> Concrete</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="index.html#areas">Areas</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="tel:7040000000" class="header-phone">(704) 000-0000</a>
+  </div>
+</header>
+
+
+<section class="page-hero">
+  <div class="page-hero-stripe"></div>
+  <div class="wrap page-hero-content">
+    <span class="eyebrow">Our Work</span>
+    <h1>Real Projects.<br><span class="gold">Real Results.</span></h1>
+    <p>Every project shown is work we completed for a Charlotte-area homeowner or business. No stock photos.</p>
+  </div>
+</section>
+
+
+<section class="sec sec--off">
+  <div class="wrap">
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="pool-deck">Pool Decks</button>
+      <button class="filter-btn" data-filter="driveway">Driveways</button>
+      <button class="filter-btn" data-filter="patio">Patios</button>
+      <button class="filter-btn" data-filter="stamped">Stamped</button>
+      <button class="filter-btn" data-filter="retaining-wall">Retaining Walls</button>
+      <button class="filter-btn" data-filter="steps">Steps</button>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!--
+        HOW TO ADD PHOTOS:
+        1. Copy a photo into this CLC folder (e.g. pool-deck-1.jpg)
+        2. Replace the <div class="gallery-ph">...</div> block with:
+              <img src="pool-deck-1.jpg" alt="Broom finish pool deck Charlotte NC" />
+        3. Update the data-category to match the filter buttons above
+        4. Fill in the caption label and location
+      -->
+
+      <div class="gallery-card" data-category="pool-deck" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Pool Deck Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Pool Deck</div>
+          <div class="gallery-caption-loc">Charlotte, NC</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="driveway" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Driveway Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Driveway</div>
+          <div class="gallery-caption-loc">Huntersville, NC</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="stamped" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Stamped Concrete Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Stamped Patio</div>
+          <div class="gallery-caption-loc">Concord, NC</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="patio" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Patio Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Custom Patio</div>
+          <div class="gallery-caption-loc">Matthews, NC</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="retaining-wall" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Retaining Wall Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Retaining Wall</div>
+          <div class="gallery-caption-loc">Mooresville, NC</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="pool-deck" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Pool Deck Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Stamped Pool Deck</div>
+          <div class="gallery-caption-loc">Cornelius, NC</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="steps" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Steps Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Entry Steps</div>
+          <div class="gallery-caption-loc">Charlotte, NC</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="driveway" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Driveway Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Exposed Aggregate Driveway</div>
+          <div class="gallery-caption-loc">Waxhaw, NC</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-category="patio" onclick="openLightbox(this)">
+        <div class="gallery-ph"><span>Add Patio Photo</span></div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Patio with Natural Rock Feature</div>
+          <div class="gallery-caption-loc">Indian Trail, NC</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ig-cta">
+      <h3>See More on Instagram</h3>
+      <p>We post new projects regularly. Follow us for the latest work.</p>
+      <a href="https://www.instagram.com/charlotteluxuryconcrete/" target="_blank" class="btn btn-gold">
+        @charlotteluxuryconcrete
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+</div>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span style="font-family:var(--f-serif);font-size:1.1rem;color:var(--white);">
+          Charlotte <span style="color:var(--gold)">Luxury</span> Concrete
+        </span>
+        <p>Concrete contractor serving Charlotte, NC and surrounding communities.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/charlotteluxuryconcrete/" target="_blank" title="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="tel:7040000000" title="Call Us">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.37 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6.29 6.29l.91-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Pool Decks</a></li>
+          <li><a href="services.html">Driveways</a></li>
+          <li><a href="services.html">Patios</a></li>
+          <li><a href="services.html">Stamped Concrete</a></li>
+          <li><a href="services.html">Retaining Walls</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Free Estimate</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#areas">Service Areas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Charlotte Luxury Concrete. All rights reserved.</span>
+      <span>Charlotte, NC &amp; Surrounding Areas</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:7040000000" class="btn btn-gold float-call">Call for Free Estimate</a>
+
+<script>
+  // Filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.gallery-card').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  });
+
+  // Lightbox — only opens if there's a real <img> inside the card
+  function openLightbox(card) {
+    const img = card.querySelector('img');
+    if (!img) return;
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
