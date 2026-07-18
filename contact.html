@@ -250,25 +250,10 @@
         <h2>Free Estimate Request</h2>
         <p class="form-sub">No obligation. We'll follow up within 1 business day.</p>
 
-        <!--
-          CONNECT THE FORM — two options:
-
-          OPTION A (Formspree — recommended):
-            1. Go to formspree.io, create a free account, create a new form
-            2. You'll get a URL like: https://formspree.io/f/abcdefgh
-            3. Replace YOUR_FORMSPREE_URL below with that URL
-            4. Delete the onsubmit="..." attribute from the <form> tag
-            5. Done — submissions go to your email automatically
-
-          OPTION B (Netlify Forms — if you host on Netlify):
-            1. Add  data-netlify="true"  to the <form> tag
-            2. Netlify picks it up automatically on deploy
-        -->
         <form
           id="estimate-form"
-          action="YOUR_FORMSPREE_URL"
+          action="https://formspree.io/f/xrenqlyq"
           method="POST"
-          onsubmit="handleSubmit(event)"
         >
           <input type="hidden" name="_subject" value="New Estimate Request — Charlotte Luxury Concrete" />
           <input type="hidden" name="_next" value="thank-you.html" />
@@ -377,16 +362,6 @@
 </footer>
 
 <a href="tel:4693465164" class="btn btn-gold float-call">Call for Free Estimate</a>
-
-<script>
-  function handleSubmit(e) {
-    const form = document.getElementById('estimate-form');
-    if (form.getAttribute('action') !== 'YOUR_FORMSPREE_URL') return;
-    e.preventDefault();
-    form.style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  }
-</script>
 
 </body>
 </html>
