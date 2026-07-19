@@ -13,7 +13,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Charlotte Luxury Concrete",
-    "telephone": "REPLACE-WITH-YOUR-NUMBER",
+    "telephone": "+14693465164",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Charlotte",
@@ -134,7 +134,7 @@
     .site-header {
       position: sticky; top: 0; z-index: 900;
       background: var(--white);
-      border-bottom: 1px solid rgba(201,168,76,.25);
+      border-bottom: 1px solid rgba(212,175,55,.25);
       box-shadow: 0 2px 12px rgba(0,0,0,.07);
     }
     .header-inner {
@@ -183,6 +183,29 @@
       transition: var(--ease);
     }
     .header-nav a:hover { color: var(--gold-lt); filter: brightness(1.15); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 34px; height: 34px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+      transition: var(--ease);
+    }
+    .site-header.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .site-header.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .site-header.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ─────────────────────────────────────────
        1. HERO
@@ -240,7 +263,7 @@
     .hero h1 em {
       font-style: normal;
       display: block;
-      background: linear-gradient(135deg, #C9A227 0%, #E8C84A 50%, #C9A227 100%);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 50%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -382,8 +405,8 @@
     ───────────────────────────────────────── */
     .gallery-note {
       display: inline-block;
-      background: rgba(201,168,76,.12);
-      border: 1px solid rgba(201,168,76,.3);
+      background: rgba(212,175,55,.12);
+      border: 1px solid rgba(212,175,55,.3);
       border-radius: 100px;
       padding: 6px 16px;
       font-size: .78rem;
@@ -433,7 +456,7 @@
       gap: 8px;
       padding: 20px;
       text-align: center;
-      border: 2px dashed rgba(201,168,76,.2);
+      border: 2px dashed rgba(212,175,55,.2);
       transition: transform .5s ease;
     }
     .gallery-item:hover .gallery-ph { transform: scale(1.04); }
@@ -443,7 +466,7 @@
       font-size: .72rem;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: rgba(201,168,76,.45);
+      color: rgba(212,175,55,.45);
     }
 
     .gallery-item .caption {
@@ -525,7 +548,7 @@
     }
     .area-pill {
       padding: 10px 14px;
-      border: 1px solid rgba(201,168,76,.2);
+      border: 1px solid rgba(212,175,55,.2);
       border-radius: var(--radius);
       font-size: .875rem;
       font-weight: 500;
@@ -538,7 +561,7 @@
     .area-pill::before { content: '▸'; color: var(--gold); font-size: .6rem; }
     .areas-cta-box {
       background: var(--white);
-      border: 1px solid rgba(201,168,76,.2);
+      border: 1px solid rgba(212,175,55,.2);
       border-radius: var(--radius);
       padding: 24px;
     }
@@ -628,7 +651,7 @@
     .faq-icon {
       width: 26px; height: 26px;
       flex-shrink: 0;
-      border: 1px solid rgba(201,168,76,.35);
+      border: 1px solid rgba(212,175,55,.35);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -671,8 +694,8 @@
     }
     .ci-icon {
       width: 42px; height: 42px;
-      background: rgba(201,168,76,.12);
-      border: 1px solid rgba(201,168,76,.2);
+      background: rgba(212,175,55,.12);
+      border: 1px solid rgba(212,175,55,.2);
       border-radius: var(--radius);
       display: flex;
       align-items: center;
@@ -698,7 +721,7 @@
     /* ★ FORM — connect to Formspree or Netlify Forms (see comments below) */
     .form-box {
       background: var(--dark2);
-      border: 1px solid rgba(201,168,76,.12);
+      border: 1px solid rgba(212,175,55,.12);
       border-radius: var(--radius);
       padding: 36px 32px;
     }
@@ -852,7 +875,7 @@
       transform: translateX(-50%);
       z-index: 800;
       white-space: nowrap;
-      box-shadow: 0 6px 28px rgba(201,168,76,.45);
+      box-shadow: 0 6px 28px rgba(212,175,55,.45);
       border-radius: 100px;
       padding: 15px 32px;
     }
@@ -861,7 +884,25 @@
        RESPONSIVE
     ───────────────────────────────────────── */
     @media (max-width: 900px) {
-      .header-nav { display: none; }
+      .nav-toggle { display: flex; }
+      .header-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid rgba(212,175,55,.25);
+        box-shadow: 0 8px 20px rgba(0,0,0,.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+      }
+      .site-header.nav-open .header-nav { max-height: 400px; }
+      .header-nav a { padding: 16px 24px; border-top: 1px solid rgba(0,0,0,.06); }
       .areas-inner { grid-template-columns: 1fr; }
       .areas-map { height: 320px; }
       .contact-grid { grid-template-columns: 1fr; }
@@ -907,6 +948,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <a href="tel:4693465164" class="header-phone">(469) 346-5164</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -1375,7 +1417,7 @@
           </div>
           <div class="ci-text">
             <strong>Hours</strong>
-            <span>Mon – Sat, 7 am – 6 pm</span>
+            <span>Mon – Sat, 6 am – 7 pm</span>
           </div>
         </div>
       </div>
@@ -1551,5 +1593,6 @@
   }
 </script>
 
+<script src="script.js"></script>
 </body>
 </html>
